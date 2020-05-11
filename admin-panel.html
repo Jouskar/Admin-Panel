@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <main>
+        <section id="users">
+            <h2>Kullanıcı Listesi
+                <button type="submit" title="1" id="userGetAll">Tüm Postları Görüntüle</button>
+            </h2>
+            <table>
+                <tr>
+                    <td>Kullanıcı 1</td>
+                    <td>
+                        <button type="submit" title="1" class="userGet" 
+                            onClick="reply_click(this.title)">Postları Görüntüle</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı 2</td>
+                    <td>
+                        <button type="submit" title="2" class="userGet" 
+                            onClick="reply_click(this.title)">Postları Görüntüle</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı 3</td>
+                    <td>
+                        <button type="submit" title="3" class="userGet" 
+                            onClick="reply_click(this.title)">Postları Görüntüle</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı 4</td>
+                    <td>
+                        <button type="submit" title="4" class="userGet" 
+                            onClick="reply_click(this.title)">Postları Görüntüle</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı 5</td>
+                    <td>
+                        <button type="submit" title="5" class="userGet" 
+                            onClick="reply_click(this.title)">Postları Görüntüle</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı 6</td>
+                    <td>
+                        <button type="submit" title="6" class="userGet" 
+                            onClick="reply_click(this.title)">Postları Görüntüle</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı 7</td>
+                    <td>
+                        <button type="submit" title="7" class="userGet" 
+                            onClick="reply_click(this.title)">Postları Görüntüle</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı 8</td>
+                    <td>
+                        <button type="submit" title="8" class="userGet" 
+                            onClick="reply_click(this.title)">Postları Görüntüle</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı 9</td>
+                    <td>
+                        <button type="submit" title="9" class="userGet" 
+                            onClick="reply_click(this.title)">Postları Görüntüle</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kullanıcı 10</td>
+                    <td>
+                        <button type="submit" title="10" class="userGet" 
+                            onClick="reply_click(this.title)">Postları Görüntüle</button>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section id="posts">
+            <h2>Postlar</h2>
+            <div id="loading">
+                <img src="loading.gif" alt="loading_gif">
+            </div>
+        </section>
+    </main>
+    
+    <section id="edit_block">
+    </section>
+    
+    <script src="admin-script.js" type="text/Javascript"></script>
+</body>
+</html>
