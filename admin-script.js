@@ -9,6 +9,13 @@ function activatePosts() {
     for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
         this.classList.toggle("active");
+        /**
+         * TO DO
+         * kodun buradan gerisini css ile cozebiliriz, uzerine konusalim
+         * genel olarak eger bir ihtiyac css ile cozuluyorsa ui icin js kullanmamak best practice'tir
+         * 
+         * dip not: cool animasyon
+         */
         var panel = this.nextElementSibling;
         if (panel.style.maxHeight) {
         panel.style.maxHeight = null;
@@ -63,6 +70,11 @@ function getAllPosts() {
 
 function getPosts(idItem) {
     var url = "https://jsonplaceholder.typicode.com/posts?userId=";
+     /**
+     * TO DO
+     * url degiskenini iki yerde de kullanmisiz ama aslinda bazlari ayni, 
+     * bunu global tek bir degisken olarak tanimlayip userId gibi paremetleri ustune ekleyerek kullanirsak daha seksi olur.
+     */
     url += String(idItem);
     var xhr = new XMLHttpRequest();
     
@@ -71,6 +83,11 @@ function getPosts(idItem) {
                                                         <img src="loading.gif" alt="loading_gif">
                                                     </div>
                                                 `;
+    /**
+     * TO DO
+     * loading htmllerini bir cok kez tek tekrarlamisiz o yuzden bir fonksiyondan gelse daha tatli olur.
+     * ya da html tarafinda bunu sabit birakip postlari ayri bir elementin icerisine alip oraya yazdirabiliriz.
+     */
     document.querySelector('#loading').style.display = "block";
 
     xhr.open('GET', url, true);
@@ -106,6 +123,11 @@ function getPosts(idItem) {
 
 function reply_click(id) {
     postId = id;
+    /**
+     * TO DO
+     * burada fazladan postId degiskenini tanimlamak yerine direk id'yi kullanabiliriz, 
+     * okunabilirlik icin yaptiysak fonksiyon parametresine direk postId adini verebiliriz.
+     */
     getPosts(postId);
 }
 
