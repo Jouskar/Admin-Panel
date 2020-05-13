@@ -1,6 +1,15 @@
-var postId;
+//Global Variables
+var url = "https://jsonplaceholder.typicode.com";
 
 document.querySelector('#userGetAll').addEventListener('click', getAllPosts);
+
+function callLoading() {
+    document.querySelector('#posts').innerHTML = `<h2>Postlar</h2>
+                                                    <div id="loading">
+                                                        <img src="loading.gif" alt="loading_gif">
+                                                    </div>
+                                                `;
+}
 
 function activatePosts() {
     var acc = document.getElementsByClassName("accordion");
@@ -27,29 +36,19 @@ function activatePosts() {
 }
 
 function getAllPosts() {
-    var url = "https://jsonplaceholder.typicode.com/posts";
+    postUrl = url + "/posts";
     var xhr = new XMLHttpRequest();
-
-    document.querySelector('#posts').innerHTML = `<h2>Postlar</h2>
-                                                    <div id="loading">
-                                                        <img src="loading.gif" alt="loading_gif">
-                                                    </div>
-                                                `;
-    document.querySelector('#loading').style.display = "block";
-
-    xhr.open('GET', url, true);
+    
+    callLoading();
+    
+    xhr.open('GET', postUrl, true);
     xhr.onload = function(){
 
         if (this.status === 200) {
-            document.querySelector('#loading').style.display = "none";
 
             var posts = JSON.parse(this.responseText);
 
-            var html = `<h2>Postlar</h2>
-                        <div id="loading">
-                            <img src="loading.gif" alt="loading_gif">
-                        </div>
-            `;
+            var html = '<h2>Postlar</h2>';
             
 
             posts.forEach(post => {                
@@ -69,40 +68,31 @@ function getAllPosts() {
 }
 
 function getPosts(idItem) {
-    var url = "https://jsonplaceholder.typicode.com/posts?userId=";
+    let postUrl = url + "/posts?userId=";
      /**
      * TO DO
      * url degiskenini iki yerde de kullanmisiz ama aslinda bazlari ayni, 
      * bunu global tek bir degisken olarak tanimlayip userId gibi paremetleri ustune ekleyerek kullanirsak daha seksi olur.
      */
-    url += String(idItem);
+    postUrl += String(idItem);
     var xhr = new XMLHttpRequest();
-    
-    document.querySelector('#posts').innerHTML = `<h2>Postlar</h2>
-                                                    <div id="loading">
-                                                        <img src="loading.gif" alt="loading_gif">
-                                                    </div>
-                                                `;
+
     /**
      * TO DO
      * loading htmllerini bir cok kez tek tekrarlamisiz o yuzden bir fonksiyondan gelse daha tatli olur.
      * ya da html tarafinda bunu sabit birakip postlari ayri bir elementin icerisine alip oraya yazdirabiliriz.
      */
-    document.querySelector('#loading').style.display = "block";
 
-    xhr.open('GET', url, true);
+    callLoading();
+
+    xhr.open('GET', postUrl, true);
     xhr.onload = function(){
 
         if (this.status === 200) {
-            document.querySelector('#loading').style.display = "none";
 
             var posts = JSON.parse(this.responseText);
 
-            var html = `<h2>Postlar</h2>
-                        <div id="loading">
-                            <img src="loading.gif" alt="loading_gif">
-                        </div>
-            `;
+            var html = '<h2>Postlar</h2>';
             
 
             posts.forEach(post => {                
@@ -121,8 +111,7 @@ function getPosts(idItem) {
     xhr.send();
 }
 
-function reply_click(id) {
-    postId = id;
+function reply_click(postId) {
     /**
      * TO DO
      * burada fazladan postId degiskenini tanimlamak yerine direk id'yi kullanabiliriz, 

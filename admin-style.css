@@ -40,18 +40,14 @@ tr:nth-child(even) {
     overflow: auto;
 }
 
-#edit_block {
-}
-
 h2 {
     position: relative;
     top: 0;
     padding-left: 5px;
 }
 
-#loading {
-    display: none;
-    height: 200px;
+#loading img{
+    height: 459.83px;
 }
 
 span {
